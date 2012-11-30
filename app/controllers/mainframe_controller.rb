@@ -1,0 +1,2 @@
+class MainframeController < ApplicationController
+end

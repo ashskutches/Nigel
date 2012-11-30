@@ -11,3 +11,14 @@
  *= require_self
  *= require_tree .
  */
+#hompage h1 {
+  background: black;
+  text-color: white;
+  height: 40px;
+  text-align: center;
+  padding: 20px;
+}
+
+#hompage {
+  border: 1px solid blue;
+}

@@ -1,16 +1,28 @@
-<h1> Nigel </h1>
+<div id="homepage">
+  <h1> Nigel </h1>
 
-<h2> Tasks </h2>
-<ul> 
-  <li><p> Text will go here </p></li>
-</ul>
+  <div class="content">
+    <h2> Tasks </h2>
+    <ul> 
+      <%- @tasks.each do |task| %>
+      <li><p><%= task.title %></p></li>
+      <%- end %>
+    </ul>
+    <%= link_to "New Task",  new_task_path %>
+  </div>
 
-<h2> Feed </h2>
-<ul> 
-  <li><p> Text will go here </p></li>
-</ul>
+  <div class="content">
+    <h2> Feed </h2>
+    <ul> 
+      <li><p> Text will go here </p></li>
+    </ul>
+  </div>
 
-<h2> News </h2>
-<ul> 
-  <li><p> Text will go here </p></li>
-</ul>
+  <div class="content">
+    <h2> News </h2>
+    <ul> 
+      <li><p> Text will go here </p></li>
+    </ul>
+  </div>
+
+</div>

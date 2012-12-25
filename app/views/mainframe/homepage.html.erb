@@ -3,26 +3,16 @@
 
   <div class="content">
     <h2> Tasks </h2>
-    <ul> 
+    <ul id='tasks'> 
       <%- @tasks.each do |task| %>
-      <li><p><%= task.title %></p></li>
+        <li class='task'>
+          <p>
+            <%= task.title %>
+            <%= link_to "X", task_path(task), method: :delete %>
+          </p>
+       </li>
       <%- end %>
-    </ul>
-    <%= link_to "New Task",  new_task_path %>
-  </div>
-
-  <div class="content">
-    <h2> Feed </h2>
-    <ul> 
-      <li><p> Text will go here </p></li>
+      <li id='new'><%= link_to "New Task",  new_task_path %></li>
     </ul>
   </div>
-
-  <div class="content">
-    <h2> News </h2>
-    <ul> 
-      <li><p> Text will go here </p></li>
-    </ul>
-  </div>
-
 </div>

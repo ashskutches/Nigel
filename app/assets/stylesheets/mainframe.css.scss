@@ -14,15 +14,31 @@ h1 {
 }
 
 .content {
-  float: left;
-  width: 49%;
+  width: 75%;
   border: 1px solid black;
   height: 400px;
   text-align: center;
+  margin: 0 auto;
 }
 
-.content:hover {
+.task {
+  width: 80%;
+  margin: 0 auto;
+  height: 60px;
+  padding: 10px 0;
+}
+
+.task:hover {
   background: gray;
-  
 }
 
+#new {
+  padding: 10px 0;
+  color: white;
+  width: 10%;
+  margin: auto;
+}
+
+#new:hover {
+  background: gray;
+}

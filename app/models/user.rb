@@ -13,13 +13,12 @@ class User < ActiveRecord::Base
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
-      user.talk("Your favorite movie is #{user.favorite_television_shows}")
 
     end
   end
 
   def talk(content)
-    system "espeak 'Your favorite television shows are #{content}'"
+    system "espeak '#{content}'"
   end
 
   def facebook
@@ -30,16 +29,25 @@ class User < ActiveRecord::Base
     nil
   end
 
+  def info(info)
+    facebook.get_connection("me", "#{info}")
+  end
+
   def favorite_television_shows
-    facebook.get_connection("me", "television").collect { |show| show['name']}
+    info("television").collect { |show| show['name']}
   end
 
   def facebook_friends
-    facebook.get_connection("me", "friends").collect { |friend| friend['name']}
+    info("friends").collect { |friend| friend['name']}
   end
 
-  def is_facebook_friend?(name)
+  def facebook_friend?(name)
     !(facebook_friends.grep(name).empty?)
   end
+
+  def facebook_feed
+    info('feed')
+  end
+
 
 end

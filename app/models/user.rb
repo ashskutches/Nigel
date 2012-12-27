@@ -45,9 +45,5 @@ class User < ActiveRecord::Base
     !(facebook_friends.grep(name).empty?)
   end
 
-  def facebook_feed
-    info('feed')
-  end
-
 
 end

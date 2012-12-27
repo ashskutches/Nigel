@@ -1,0 +1,14 @@
+#homepage
+  %h1 Nigel
+  .content
+    %h2 Feed
+    %ul#tasks
+      - @feed.each do |task|
+        %li.task
+          %p
+            = task[:source]
+            = ':'
+            = task[:content]
+            - if task.class.to_s == 'Task'
+              = link_to "X", task_path(task), method: :delete
+      %li#new= link_to "New Task",  new_task_path

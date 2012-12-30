@@ -1,11 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid
-  require 'pp'
 
   def self.from_omniauth(auth)
-    puts "====Authentication=Token===="
-    pp auth
-    puts "============================"
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
@@ -13,7 +9,6 @@ class User < ActiveRecord::Base
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
-
     end
   end
 
@@ -43,6 +38,10 @@ class User < ActiveRecord::Base
 
   def facebook_friend?(name)
     !(facebook_friends.grep(name).empty?)
+  end
+
+  def facebook_inbox
+    info('inbox')
   end
 
 

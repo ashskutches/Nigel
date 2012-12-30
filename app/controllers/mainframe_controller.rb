@@ -7,7 +7,7 @@ class MainframeController < ApplicationController
 
     if current_user
       @feed << { source: "Facebook", content: current_user.info('feed').first['message']}
-      @feed << { source: "Gmail", content: current_user.gmail_inbox.first }
+      @feed << { source: "Gmail", content: "Nothing" }
     end
     @feed
   end

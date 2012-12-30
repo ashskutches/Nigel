@@ -1,8 +1,12 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :oauth_expires_at, :oauth_token, :provider, :uid
 
-  def self.from_omniauth(auth)
-    where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+  def self.connect_to_gmail
+    require 'gmail'
+    Gmail.connect('appnigel@gmail.com', 'rapturx1')
+  end
+
+  def self.from_omniauth(auth) where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid
       user.name = auth.info.name
@@ -10,6 +14,22 @@ class User < ActiveRecord::Base
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.save!
     end
+  end
+
+  def gmail
+    @gmail ||= User.connect_to_gmail
+  end
+
+  def gmail_inbox
+    mail = gmail.inbox.find(:unread)
+    if mail
+      all_mail = mail.collect do |m|
+        m.message.html_part.body
+      end
+    else
+      all_mail = []
+    end
+    all_mail
   end
 
   def talk(content)
@@ -43,6 +63,5 @@ class User < ActiveRecord::Base
   def facebook_inbox
     info('inbox')
   end
-
 
 end

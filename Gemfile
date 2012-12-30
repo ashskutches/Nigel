@@ -10,6 +10,10 @@ gem 'omniauth-facebook', '1.4.0'
 gem 'koala'
 gem 'haml-rails'
 gem 'fb_graph'
+gem 'mail'
+gem 'mime'
+gem 'gmail'
+gem 'gmail_xoauth'
 
 # Gems used only for assets and not required
 # in production environments by default.

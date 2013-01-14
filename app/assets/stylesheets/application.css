@@ -22,3 +22,16 @@
 #hompage {
   border: 1px solid blue;
 }
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+#user_nav {
+  height: 35px;
+}
+

@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def talk(content)
+  def self.talk(content)
     system "espeak '#{content}'"
   end
 

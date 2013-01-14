@@ -1,0 +1,11 @@
+#index
+  %h1 Nigel
+  .content
+    %h2 Feed
+    %ul#tasks
+      - @tasks.each do |task|
+        %li.task
+          %p
+            = task.title
+            = link_to "X", task_path(task), method: :delete
+      %li#new= link_to "New Task",  new_task_path

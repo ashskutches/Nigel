@@ -11,7 +11,9 @@ Mailman.config.pop3 = {
 
 Mailman::Application.run do
   default do
-    body = message.parts[0].body.decoded
+    unless message.nil? || message == 0
+      body = message.parts[0].body.decoded
+    end
     puts "==============" 
     puts "Email.parts[0].body.decoded: #{body}" 
     puts "==============" 

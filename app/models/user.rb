@@ -11,10 +11,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def self.talk(content)
-    system "espeak '#{content}'"
-  end
-
   def facebook
     @facebook ||= Koala::Facebook::API.new(oauth_token)
     block_given? ? yield(@facebook) : @facebook

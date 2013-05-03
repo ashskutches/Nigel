@@ -1,6 +1,6 @@
 Nigel::Application.routes.draw do
 
-  root :to => 'mainframe#homepage'
+  root :to => 'dashboard#homepage'
 
  match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')

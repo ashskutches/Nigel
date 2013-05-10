@@ -19,6 +19,6 @@ Mailman::Application.run do
     puts "==============" 
     puts "Email.text_part: #{message.text_part}" 
     puts "==============" 
-    User.talk(body)
+    Nigal.talk(body)
   end
 end

@@ -8,6 +8,7 @@ gem 'koala'
 gem 'fb_graph'
 gem 'mail'
 gem 'mailman', require: false
+gem 'therubyracer'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

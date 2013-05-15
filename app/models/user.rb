@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     facebook.get_connection("me", "#{info}")
   end
 
+  def facebook_profile_picture
+    facebook.get_picture(self.uid)
+  end
+
   def favorite_television_shows
     info("television").collect { |show| show['name']}
   end

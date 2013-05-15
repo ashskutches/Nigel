@@ -43,4 +43,12 @@ class User < ActiveRecord::Base
     info('inbox')
   end
 
+  def facebook_new_messages?
+    if 0 < info('inbox').collect { |thread| thread['unread'] }.inject{|sum,x| sum + x }
+      return true
+    else
+      return false
+    end
+  end
+
 end

@@ -1,3 +1,3 @@
 class Task < ActiveRecord::Base
-  attr_accessible :source, :title
+  attr_accessible :source, :content, :action
 end

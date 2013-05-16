@@ -6,6 +6,9 @@
       - @tasks.each do |task|
         %li.task
           %p
-            = task.title
-            = link_to "X", task_path(task), method: :delete
+            = "Content:"
+            = task.content
+            = "Source:"
+            = task.source
+            = link_to "Done?", task_path(task), method: :delete
       %li#new= link_to "New Task",  new_task_path

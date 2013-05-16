@@ -9,7 +9,8 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = Task.new(params[:task])
+    u = User.find(current_user)
+    task = u.tasks.build(params[:task])
     if task.save
       redirect_to :root
     else

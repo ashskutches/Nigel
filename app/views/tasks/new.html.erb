@@ -1,7 +1,12 @@
-<h1> New Task </h2>
+<div id="index">
+  <h1> Nigel </h2>
+  <h2> New Task </h2>
 
-<%= form_for(@task) do |f| %>
-  <%= f.label :title, "Title" %>
-  <%= f.text_field :title %>
-  <%= f.submit %>
-<%- end %>
+  <%= form_for @task, :user_id => current_user.id do |f| %>
+    <%= f.label :content, "Content" %>
+    <%= f.text_field :content %>
+    <%= f.label :source, "Source" %>
+    <%= f.text_field :source %>
+    <%= f.submit %>
+  <%- end %>
+</div>

@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
 
   def homepage
-    @feed = []
+    current_user ? @tasks = current_user.tasks.all : nil
   end
 
 end

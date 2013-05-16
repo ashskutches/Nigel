@@ -4,6 +4,7 @@
   <title>Nigel</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "speakClient" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -26,5 +27,6 @@
 
   <%= yield %>
 
+  <div id="audio"></div>
 </body>
 </html>

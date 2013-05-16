@@ -101,6 +101,7 @@ GEM
     omniauth-oauth2 (1.0.3)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
+    pg (0.15.1)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -145,7 +146,6 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.6)
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
       ref
@@ -171,8 +171,8 @@ DEPENDENCIES
   mail
   mailman
   omniauth-facebook (= 1.4.0)
+  pg
   rails (= 3.2.9)
   sass-rails (~> 3.2.3)
-  sqlite3
   therubyracer
   uglifier (>= 1.0.3)

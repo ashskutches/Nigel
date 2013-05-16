@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 
-gem 'sqlite3'
+gem 'pg'
 gem 'omniauth-facebook', '1.4.0'
 gem 'koala'
 gem 'fb_graph'

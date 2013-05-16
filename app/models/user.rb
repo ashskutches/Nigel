@@ -51,4 +51,18 @@ class User < ActiveRecord::Base
     end
   end
 
+  def facebook_new_messages
+    new_messages = []
+    threads = info('inbox').select { |thread| thread['unread'] > 0 }
+    threads.collect do |thread| 
+      new_messages << { :name => thread['to']['data'].last['name'], :message => thread['comments']['data'].last['message'] }
+    end
+    new_messages
+  end
+
+  def facebook_last_message
+    puts info('inbox').first
+    info('inbox').first['from']
+  end
+
 end

@@ -56,7 +56,8 @@ class User < ActiveRecord::Base
     new_messages = []
     threads = info('inbox').select { |thread| thread['unread'] > 0 }
     threads.collect do |thread| 
-      new_messages << { :name => thread['to']['data'].last['name'], :message => thread['comments']['data'].last['message'] }
+      puts thread['comments']['data'].last
+      new_messages << { :name => thread['to']['data'].last['name'], :message => thread['comments']['data'].last['message'], :id => thread['comments']['data'].last['id'] }
     end
     new_messages
   end

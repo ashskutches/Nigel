@@ -1,11 +1,8 @@
 class DashboardController < ApplicationController
 
   def homepage
-    if current_user  
-     Nigal.gather_knowledge(current_user)
-    end
-    current_user ? @tasks = current_user.tasks.all : nil
-    Task.destroy_all
+    Task.update_facebook_content(current_user) if current_user
+    @tasks = Task.all
   end
 
 end

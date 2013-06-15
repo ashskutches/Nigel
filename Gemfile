@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.9'
 
 gem 'pg'
-gem 'omniauth-facebook', '1.4.0'
+gem "omniauth", "~> 1.1.1"
+gem 'omniauth-facebook', '1.4.1'
 gem 'koala'
 gem 'fb_graph'
 gem 'mail'

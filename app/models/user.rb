@@ -20,6 +20,19 @@ class User < ActiveRecord::Base
     nil
   end
 
+  def synch_facebook_messages(messages)
+    messages.each do |message|
+      task = self.tasks.build(
+        :content => " message from #{message[:name]}. #{message[:message]}", 
+        :source => "Facebook", 
+        :user_id => self.id, 
+        :action => "new", 
+        :uid => "#{message[:id]}")
+      puts message
+      task.save unless Task.all.map(&:uid).include?(task.uid) 
+    end
+  end
+
   def info(info)
     facebook.get_connection("me", "#{info}")
   end

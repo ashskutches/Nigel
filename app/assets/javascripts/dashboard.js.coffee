@@ -18,3 +18,9 @@ window.fbAsyncInit = ->
     FB.getLoginStatus (response) ->
       FB.logout() if response.authResponse
     true
+
+$(document).ready ->
+  text = $("li.task").text()
+  console.log "Speaking #{text}"
+  speak text
+

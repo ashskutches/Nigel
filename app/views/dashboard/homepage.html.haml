@@ -10,7 +10,5 @@
               = task[:source]
               = ':'
               = task[:content]
-              - if task.class.to_s == 'Task'
-                = link_to "Done?", task_path(task), method: :delete
       - if current_user
-        %li#new= link_to "New Task",  new_task_path
+        %li#new= link_to "New Task",  new_user_task_path(current_user)

@@ -6,8 +6,8 @@ Nigel::Application.routes.draw do
  match 'auth/failure', to: redirect('/')
  match 'signout', to: 'sessions#destroy', as: 'signout'
 
-  resources :user do
-    resources :tasks
+  resources :user, :only => [:new, :create] do
+    resources :tasks, :only => [:new, :create, :index]
   end
   
 end

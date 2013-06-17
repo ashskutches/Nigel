@@ -4,7 +4,7 @@ class Task < ActiveRecord::Base
   def self.update_facebook_content(users)
     users.each do |user|
       messages = user.facebook_new_messages? ? user.facebook_new_messages : nil
-      user.synch_facebook_messages(messages)
+      user.synch_facebook_messages(messages) if messages
     end
   end
 

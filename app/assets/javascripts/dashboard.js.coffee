@@ -20,7 +20,18 @@ window.fbAsyncInit = ->
     true
 
 $(document).ready ->
-  text = $("li.task").text()
-  console.log "Speaking #{text}"
-  speak text
+  $("li").each ->
+    text = undefined
+    if $(this).data("action") is "viewed"
+      $(this).css "background", "grey"
+    else if $(this).data("action") is "new"
+      text = $("li.task").text()
+      console.log "Speaking " + text
+      speak text
+
+
+
+
+
+
 

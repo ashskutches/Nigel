@@ -5,7 +5,7 @@
     %ul#tasks
       - if @tasks
         - @tasks.each do |task|
-          %li.task
+          %li.task{data: { action: task[:action] } }
             %p
               = task[:source]
               = ':'

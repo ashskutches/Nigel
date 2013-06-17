@@ -14,9 +14,11 @@ class Task < ActiveRecord::Base
     puts "==== Facebook content update complete ===="
   end
 
-  def mark_as_viewed
-    action = 'viewed' if action == 'new'
-    save
+  def self.mark_as_viewed(tasks)
+    tasks.each do |task| 
+      task.action = 'viewed' if task.action == 'new'
+      task.save
+    end
   end
   
 end

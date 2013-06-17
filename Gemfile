@@ -15,6 +15,8 @@ gem 'coffee-rails', '~> 3.2.1'
 gem 'haml-rails'
 gem 'delayed_job_active_record'
 gem 'jquery-rails'
+gem 'daemons'
+gem 'clockwork'
 
 group :assets do
   gem 'uglifier', '>= 1.0.3'

@@ -8,6 +8,12 @@ class Task < ActiveRecord::Base
     end
   end
 
+  def self.update_all_facebook_content
+    puts "==== Begin updating all facebook content ===="
+    Task.update_facebook_content(User.all)
+    puts "==== Facebook content update complete ===="
+  end
+
   def mark_as_viewed
     action = 'viewed' if action == 'new'
     save

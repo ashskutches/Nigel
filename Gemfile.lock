@@ -32,6 +32,9 @@ GEM
     arel (3.0.2)
     attr_required (0.0.5)
     builder (3.0.4)
+    clockwork (0.5.2)
+      activesupport
+      tzinfo (~> 0.3.35)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -39,6 +42,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.4.0)
+    daemons (1.1.9)
     delayed_job (3.0.5)
       activesupport (~> 3.0)
     delayed_job_active_record (0.4.4)
@@ -168,7 +172,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  clockwork
   coffee-rails (~> 3.2.1)
+  daemons
   delayed_job_active_record
   fb_graph
   haml-rails

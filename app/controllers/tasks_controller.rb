@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = Task.all
+    @tasks  = Task.by_action(params[:action]) || Task.all
     respond_to do |format|
       format.html
       format.json  { render :json => @tasks }

@@ -1,4 +1,4 @@
-class Task < ActiveRecord::Base
+class  Task < ActiveRecord::Base
   attr_accessible :source, :content, :action, :user_id, :uid
 
   def self.update_facebook_content(users)
@@ -20,6 +20,6 @@ class Task < ActiveRecord::Base
       task.save
     end
   end
-  
+
 end
 

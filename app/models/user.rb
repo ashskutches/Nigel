@@ -80,4 +80,14 @@ class User < ActiveRecord::Base
     info('inbox').first['from']
   end
 
+  def tasks_with_action(action)
+    if action == 'viewed'
+      Task.find_by_action('viewed')
+    elsif action == 'new'
+      Task.find_by_action('new')
+    else
+      nil
+    end
+  end
+  
 end

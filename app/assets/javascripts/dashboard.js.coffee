@@ -20,8 +20,30 @@ window.fbAsyncInit = ->
     true
 
 $(document).ready ->
+  # Variables
+  user_id = $("body")[0].id
+  tasks_url = "/user/" + user_id + "/tasks.json?action=new"
+
+
+
+  # Snych tasks
+  $.ajax
+    type: "GET"
+    dataType: "json"
+    url: tasks_url
+    success: (data) ->
+      add_tasks_to_page data
+
+  # Add tasks to html list
+  add_tasks_to_page = (data) ->
+    $.each data, (index, value) ->
+      content = value.source + ": " + value.content
+      $("ul#tasks").append "<li class=\"task\" data-action=\"new\"><p> " + content + "</p></li>"
+      speak content
+	
+
+  # Speak tasks outloud 
   $("li").each ->
-    text = undefined
     if $(this).data("action") is "viewed"
       $(this).css "background", "grey"
     else if $(this).data("action") is "new"
@@ -29,9 +51,9 @@ $(document).ready ->
       console.log "Speaking " + text
       speak text
 
-
-
-
-
-
-
+  #poller
+  #doPoll =  ->
+    #console.log "Polling" # process results here
+    #add_new_tasks ->
+      ##console.log "Polling" # process results here
+      #setTimeout doPoll, 5000

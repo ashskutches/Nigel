@@ -23,8 +23,8 @@ class User < ActiveRecord::Base
   def synch_facebook_messages(messages)
     messages.each do |message|
       task = self.tasks.build(
-        :content => " message from #{message[:name]}. #{message[:message]}", 
-        :source => "Facebook", 
+        :content => " #{message[:message]}", 
+        :source => "Facebook message from #{message[:name]}." , 
         :user_id => self.id, 
         :action => "new", 
         :uid => "#{message[:id]}")

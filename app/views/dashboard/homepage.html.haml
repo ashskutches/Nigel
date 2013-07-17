@@ -1,14 +1,14 @@
 #index
   %h1 Nigel
-  .content
+  #content
     %h2 Feed
     %ul#tasks
       - if @tasks
         - @tasks.each do |task|
           %li.task{data: { action: task[:action] } }
-            %p
+            %p.source
               = task[:source]
-              = ':'
+            %p.content
               = task[:content]
       - if current_user
         %li#new= link_to "New Task",  new_user_task_path(current_user)

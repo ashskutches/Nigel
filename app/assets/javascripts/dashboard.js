@@ -27,6 +27,7 @@ window.fbAsyncInit = function() {
 $(document).ready(function() {
 
   var text = ""
+  var id   = $('body').data('id');
 
   $.each($('li.task'), function() { 
     if ($(this).data('action')) {
@@ -41,7 +42,7 @@ $(document).ready(function() {
   
   function addNewTasks() {
     $.ajax({
-      url: "/user/1/tasks.json",
+      url: "/user/" + id + "/tasks.json",
       type: "get",
       dataType: "json",
       success: function(data) {
@@ -58,7 +59,7 @@ $(document).ready(function() {
   function updateTask(data) {
     $.ajax({
       type: 'PUT',
-      url:  '/user/1/tasks/' + data['id'] + '.json',
+      url:  '/user/' + id + '/tasks/' + data['id'] + '.json',
       data: data,
       dataType: "JSON",
       success: function(data) {

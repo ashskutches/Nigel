@@ -1,5 +1,6 @@
 class Task < ActiveRecord::Base
   attr_accessible :source, :content, :action, :user_id, :uid
+  belongs_to :user
 
   def self.update_facebook_content(users)
     users.each do |user|

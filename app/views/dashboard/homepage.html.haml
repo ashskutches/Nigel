@@ -6,9 +6,7 @@
       - if @tasks
         - @tasks.each do |task|
           %li.task{data: { action: task[:action] } }
-            %p.source
-              = task[:source]
-            %p.content
-              = task[:content]
+            %p.source= task[:source]
+            %p.content= task[:content]
       - if current_user
-        %li#new= link_to "New Task",  new_user_task_path(current_user)
+        %li.new= link_to "New Task",  new_user_task_path(current_user)

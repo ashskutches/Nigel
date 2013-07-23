@@ -17,6 +17,7 @@ gem 'delayed_job_active_record'
 gem 'jquery-rails'
 gem 'daemons'
 gem 'clockwork'
+gem "twitter-bootstrap-rails"
 
 group :assets do
   gem 'uglifier', '>= 1.0.3'

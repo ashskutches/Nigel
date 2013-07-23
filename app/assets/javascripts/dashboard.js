@@ -26,47 +26,63 @@ window.fbAsyncInit = function() {
 
 $(document).ready(function() {
 
-  var text = ""
   var id   = $('body').data('id');
 
-  $.each($('li.task'), function() { 
-    if ($(this).data('action')) {
-      text = text + $(this).text();
-    }
-  });
-
-
+ // Continous Loop
   window.setInterval(function(){
-    addNewTasks();
+    appendNewTasks();
+    speakNewTasks();
   }, 5000);
-  
-  function addNewTasks() {
-    $.ajax({
-      url: "/user/" + id + "/tasks.json",
-      type: "get",
-      dataType: "json",
-      success: function(data) {
-        $.each(data, function() {
-          data = { action: 'viewed', id: this.id }
-          $('ul#tasks').prepend("<li class='task' data-action='" + this.action + "'> <p class='source'>" + this.source + "</p> <p class='content'>" + this.content + "</li>");
-	  updateTask(data);
-	  speak(this.source + this.content);
-        });
+
+
+
+  //Methods
+  function speakNewTasks() {
+    var text = "";
+    $.each($('li.task'), function() { 
+      if ($(this).data('action') == "new") {
+        text = text + $(this).text();
+        $(this).data('action') = 'viewed';
       }
     });
-  };
+    if (text.length > 0) {
+      speak(text);
+    }
+  } 
 
-  function updateTask(data) {
+  function updateTask() {
+    var data = { action: 'viewed', id: this.id }
     $.ajax({
       type: 'PUT',
       url:  '/user/' + id + '/tasks/' + data['id'] + '.json',
       data: data,
       dataType: "JSON",
       success: function(data) {
-        console.log("Updated");
+        console.log("Updated task " + id + "-" + data['source']);
       }
     });
   }
+  
+  function appendNewTask(data) {
+    $('ul#tasks').prepend("<li class='task' data-action='" + data.action + "'> <p class='source'>" + data.source + "</p> <p class='content'>" + data.content + "</li>");
+    updateTask();
+  }
+
+
+  function appendNewTasks() {
+    console.log("appendNewTasks");
+    $.ajax({
+      url: "/user/" + id + "/tasks.json",
+      type: "get",
+      dataType: "json",
+      success: function(data) {
+        $.each(data, function() {
+          appendNewTask(data);
+          console.log(data);
+        });
+      }
+    });
+  };
 
 
 //Document.ready  

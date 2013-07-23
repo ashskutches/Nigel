@@ -26,15 +26,14 @@ window.fbAsyncInit = function() {
 
 $(document).ready(function() {
 
+ // Global Variables
   var id   = $('body').data('id');
 
- // Continous Loop
+ // Poller Loop
   window.setInterval(function(){
     appendNewTasks();
     speakNewTasks();
   }, 5000);
-
-
 
   //Methods
   function speakNewTasks() {
@@ -84,5 +83,5 @@ $(document).ready(function() {
   };
 
 
-//Document.ready  
+// document.ready  
 });

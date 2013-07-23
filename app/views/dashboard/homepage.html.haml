@@ -1,6 +1,12 @@
 #index
   %h1 Nigel
   #content
+    #div_start
+      %button#start_button{:onclick => "startButton(event)"}
+        %img#start_img{:alt => "Speak", :src => ""}/
+    #results
+      .final
+      .interim
     %ul#tasks
       - if @tasks
         - @tasks.each do |task|
@@ -9,3 +15,4 @@
             %p.content= task[:content]
       - if current_user
         %li.new= link_to "New Task",  new_user_task_path(current_user)
+

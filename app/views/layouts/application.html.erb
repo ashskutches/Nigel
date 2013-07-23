@@ -1,32 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Nigel</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= javascript_include_tag "speakClient" %>
-  <%= csrf_meta_tags %>
-</head>
-<body data-id=<%= @user_id %>>
+    <head>
+        <title>Nigel</title>
+        <%= stylesheet_link_tag    "application", :media => "all" %>
+        <%= javascript_include_tag "application" %>
+        <%= javascript_include_tag "speakClient" %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body data-id=<%= @user_id %>>
 
-  <div id="user_nav">
-    <div class="left">
-      <% if current_user %>
-	<%= image_tag(current_user.facebook_profile_picture) %>
-        Signed in as <strong><%= current_user.name %></strong>!
-        <%= link_to "Sign out", signout_path, id: "sign_out" %>
-      <% else %>
-        <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
-      <% end %>
-    </div>
-    <div class="right">
-      ALPHA
-    </div>
+        <div class="navbar navbar-inverse">
+            <div class="navbar-inner">
+                <% if current_user %>
+                    <a class="brand" href="#">
+                        <%= image_tag(current_user.facebook_profile_picture) %><strong><%= current_user.name %></strong>
+                    </a>
+                <% else %>
+                  <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in", class: "brand" %>
+                <% end %>
+                <ul class="nav">
+                </ul>
+            </div>
+        </div>
 
-  </div>
+        <%= yield %>
 
-  <%= yield %>
-
-  <div id="audio"></div>
-</body>
+        <div id="audio"></div>
+    </body>
 </html>
+

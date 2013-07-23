@@ -70,7 +70,6 @@ $(document).ready(function() {
 
 
   function appendNewTasks() {
-    console.log("appendNewTasks");
     $.ajax({
       url: "/user/" + id + "/tasks.json",
       type: "get",

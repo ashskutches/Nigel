@@ -3,7 +3,7 @@
   #content
     - if current_user
       #div_start
-        %button#start_button{:onclick => "startButton(event)"}
+        %a#start_button{ :class => 'btn btn-success', :onclick => "startButton(event)"}
           %img#start_img{:alt => "Speak", :src => ""}/
     #results
       .final

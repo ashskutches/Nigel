@@ -1,7 +1,7 @@
+require './config/boot'
+require './config/environment'
 require 'clockwork'
 include Clockwork
-require './config/boot'
-    require './config/environment'
 
 handler do |job|
   puts "Running #{job}"

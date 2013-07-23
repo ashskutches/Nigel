@@ -1,3 +1,7 @@
 development:
   adapter: postgresql
   database: nigel_development
+
+production:
+  adapter: postgresql
+  database: nigel_production

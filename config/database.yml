@@ -2,6 +2,10 @@ development:
   adapter: postgresql
   database: nigel_development
 
+test:
+  adapter: postgresql
+  database: nigel_test
+
 production:
   adapter: postgresql
   database: nigel_production

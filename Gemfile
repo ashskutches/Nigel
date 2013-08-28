@@ -19,8 +19,14 @@ gem 'daemons'
 gem 'clockwork'
 gem "twitter-bootstrap-rails"
 
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+end
+
 group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-
+group :development do
+  gem 'guard-rspec'
+end

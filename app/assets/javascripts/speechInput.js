@@ -5,10 +5,11 @@ var final_transcript = '';
 var recognizing = false;
 var ignore_onend;
 var start_timestamp;
+var response;
 
 if (!('webkitSpeechRecognition' in window)) {
   upgrade();
-} 
+}
 else {
   var recognition = new webkitSpeechRecognition();
   recognition.continuous = true;
@@ -26,11 +27,20 @@ else {
 
     for (var i = event.resultIndex; i < event.results.length; ++i) {
       if (event.results[i].isFinal) {
-        if (event.results[i][0].transcript.indexOf("Nigel") > -1) { 
+        if (event.results[i][0].transcript.indexOf("Nigel") > -1) {
           final_transcript = event.results[i][0].transcript;
           $('#results').text(final_transcript);
-          speak('How may I help you sir?');
-          console.log('How may I help you sir?');
+          console.log(final_transcript);
+$.ajax({
+   type: "POST",
+   url: "/nigal",
+   data: { content: final_transcript },
+   success: function(msg){
+     speak(msg['text']) ;
+    $('#nigal_says').text(msg['text']);
+    console.log(msg['text']);
+   }
+ });
         }
       } else {
         interim_transcript += event.results[i][0].transcript;

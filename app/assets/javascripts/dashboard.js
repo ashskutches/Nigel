@@ -38,7 +38,7 @@ $(document).ready(function() {
   //Methods
   function speakNewTasks() {
     var text = "";
-    $.each($('li.task'), function() { 
+    $.each($('li.task'), function() {
       if ($(this).data('action') == "new") {
         text = text + $(this).text();
         $(this).data('action') = 'viewed';
@@ -47,7 +47,7 @@ $(document).ready(function() {
     if (text.length > 0) {
       speak(text);
     }
-  } 
+  }
 
   function updateTask() {
     var data = { action: 'viewed', id: this.id }
@@ -61,7 +61,7 @@ $(document).ready(function() {
       }
     });
   }
-  
+
   function appendNewTask(data) {
     $('ul#tasks').prepend("<li class='task' data-action='" + data.action + "'> <p class='source'>" + data.source + "</p> <p class='content'>" + data.content + "</li>");
     updateTask();
@@ -82,6 +82,5 @@ $(document).ready(function() {
     });
   };
 
-
-// document.ready  
+// document.ready
 });

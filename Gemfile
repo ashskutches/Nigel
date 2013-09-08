@@ -18,6 +18,7 @@ gem 'jquery-rails'
 gem 'daemons'
 gem 'clockwork'
 gem "twitter-bootstrap-rails"
+gem 'cleverbot'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'

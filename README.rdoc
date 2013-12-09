@@ -2,14 +2,20 @@
 --------------
 
 ## Purpose
-A customer tailored program that simulates a 'personality'. Responds to the needs of my creator.
+  Combines different technologies to provide misc use.
 
 ## Technologies
+  Koala
+  PostgreSQL
+  Mail
+  Daemons / Clockwork
+  Twitter-bootstrap-rails
+  Cleverbot
+  Jquery
+  Angular Soon
 
 ### Implemented
-    (none)
-
-    ### Planning on using
-    + Facebook API
-    + Google speech API
-    + Twitter API
+  ### Planning on using
+  + Facebook API
+  + Google speech API
+  + Twitter API

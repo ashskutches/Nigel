@@ -4,7 +4,7 @@ gem 'rails', '3.2.9'
 
 gem 'pg'
 gem "omniauth", "~> 1.1.1"
-gem 'omniauth-facebook', '1.4.1'
+gem 'omniauth-facebook', '1.5.0'
 gem 'koala'
 gem 'fb_graph'
 gem 'mail'
